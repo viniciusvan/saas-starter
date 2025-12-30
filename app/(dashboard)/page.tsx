@@ -6,10 +6,12 @@ import {
   Tags,
   Users,
   Search,
-  Moon
+  ShieldCheck
 } from 'lucide-react';
 import { Hero } from '@/components/marketing/Hero';
 import { FeaturesSection } from '@/components/marketing/FeaturesSection';
+import { HighlightsSection } from '@/components/marketing/HighlightsSection';
+import { TestimonialsSection } from '@/components/marketing/TestimonialsSection';
 import { Faq } from '@/components/marketing/Faq';
 import { Footer } from '@/components/marketing/Footer';
 
@@ -19,13 +21,13 @@ export default function HomePage() {
       <Hero
         title={
           <>
-            Capture your notes
-            <span className="block text-blue-600">anywhere</span>
+            Capture every idea
+            <span className="block text-blue-600">before it disappears</span>
           </>
         }
-        subtitle="NoteFlow keeps your thoughts organized and in sync across all your devices."
+        subtitle="NoteFlow is a calm, blue-first workspace that keeps your notes, tasks, and research perfectly organized across every device."
         cta={
-          <Button asChild size="lg" className="rounded-full">
+          <Button asChild size="lg" className="rounded-full bg-blue-600 text-white hover:bg-blue-700">
             <Link href="/sign-up">Get Started</Link>
           </Button>
         }
@@ -58,9 +60,61 @@ export default function HomePage() {
             description: 'Find any note instantly with keywords.'
           },
           {
-            icon: Moon,
-            title: 'Dark Mode',
-            description: 'Reduce eye strain with a beautiful dark theme.'
+            icon: ShieldCheck,
+            title: 'Private by Design',
+            description: 'Your notes stay secure with encryption and access controls.'
+          }
+        ]}
+      />
+
+      <HighlightsSection
+        title="Designed for calm, structured thinking"
+        subtitle="Everything in NoteFlow is organized around clarity. Capture new ideas quickly, then build them into structured projects with ease."
+        items={[
+          {
+            title: 'Unified inbox',
+            description:
+              'Drop quick notes, voice memos, or meeting recaps into one inbox and sort later.'
+          },
+          {
+            title: 'Project spaces',
+            description:
+              'Group notes into focused workspaces for each project, class, or client.'
+          },
+          {
+            title: 'Daily momentum',
+            description:
+              'Track follow-ups and todos so your notes naturally become next steps.'
+          },
+          {
+            title: 'Share with confidence',
+            description:
+              'Send a secure link or invite collaborators without losing control of your work.'
+          }
+        ]}
+      />
+
+      <TestimonialsSection
+        title="Trusted by people who live in their notes"
+        subtitle="From students to startup teams, NoteFlow keeps everyone aligned and moving quickly."
+        items={[
+          {
+            quote:
+              'The blue focus mode makes every meeting feel calmer. My team finally finds what they need instantly.',
+            name: 'Jordan Lee',
+            role: 'Product Lead, Harbor Labs'
+          },
+          {
+            quote:
+              'I replaced three apps with NoteFlow. It is the best place to brainstorm and organize research.',
+            name: 'Priya Patel',
+            role: 'Graduate Researcher'
+          },
+          {
+            quote:
+              'Notes, tasks, and context all live together. It feels like the app was built for my workflow.',
+            name: 'Marco Ruiz',
+            role: 'Creative Director'
           }
         ]}
       />
