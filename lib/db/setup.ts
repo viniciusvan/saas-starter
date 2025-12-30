@@ -193,6 +193,19 @@ async function writeEnvFile(envVars: Record<string, string>) {
   console.log('.env file created with the necessary variables.');
 }
 
+async function runMigrations(POSTGRES_URL: string) {
+  console.log('Step 7: Running database migrations...');
+  try {
+    await execAsync('npx drizzle-kit migrate', {
+      env: { ...process.env, POSTGRES_URL },
+    });
+    console.log('Database migrations completed.');
+  } catch (error) {
+    console.error('Failed to run database migrations.');
+    throw error;
+  }
+}
+
 async function main() {
   await checkStripeCLI();
 
@@ -209,6 +222,8 @@ async function main() {
     BASE_URL,
     AUTH_SECRET,
   });
+
+  await runMigrations(POSTGRES_URL);
 
   console.log('🎉 Setup completed successfully!');
 }
